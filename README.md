@@ -24,7 +24,7 @@
         <html lang="en-GB">
         ```
 
-    - If there are subsections in different languages, use `lang="[ISO code]"` to indicate this.
+    - If there are subsections in different languages, use the `lang="[ISO code]"` attribute on the containing element to indicate this.
 
 2. Support "pinch zoom"
 
@@ -39,15 +39,19 @@
 
     - Do not mark up subheadings/straplines with separate heading elements.
 
-4. Provide alternative text for salient images
+4. Provide alternative text for images that require it
 
     - Apply `alt=""` or `aria-hidden="true"` to images that are purely decorative or contain content that is already conveyed in text.
+    - Describe the image as specifically as possible, whilst keeping it short and succinct.
+    - Don’t include  ‘Image of ’ or ’Picture of’ in your alt text—a screen reader will announce this by default.
 
-5. Are all links visible and keyboard-accessible?
+5. Are all interactive elements visible and keyboard-accessible?
 
-    - Links should have `text-decoration: underline` (at least in body copy)
+    - This includes links, buttons, audio and video controls, as well as any type of form input (input, textarea, select)
 
-    - Ensure all links have a clear, unambiguous `:focus` state
+    - Ensure all interactive elements have a clear, unambiguous `:focus` state, preferrably different from the `:hover` state. If removing the browser-default focus outline, an alternative is required.
+
+    - Links should have `text-decoration: underline;` (at least in body copy) and colour should be used as a redundant cue. i.e. not the sole indicator that an element is a link.
 
 6. Does all text meet the minimum contrast ratio?
 
@@ -55,11 +59,11 @@
 
     - For **AAA**, text and images of text have a contrast ratio of at least 7:1. Large text, 24px or 18.66px bold, has a contrast ratio of at least 4.5:1.
 
-8. Is site still usable when zoomed in?
+7. Is site still usable when zoomed in?
 
-    - Make sure every feature can be used when text size is increased by 200%
+    - Make sure every feature can be used when text size is increased to 200%
 
-7. Is all text of a legible size?
+8. Is all text of a legible size?
 
     - Make sure body text is no smaller than default (user agent) size — usually 16px.
 
@@ -73,11 +77,11 @@
 
     - Group related form elements (e.g. radio and checkbox) inside a fieldset and describe the group with a legend.
 
-    - Required form elements or form elements that require a specific format, value, or length should provide this information within the element's label.
+    - Required form elements or form elements that require a specific format, value, or length should provide this information within the element’s label.
 
-    - Any 'help text' that is not part of a label, should be linked to input by adding the id of the help text element in input's `aria-describedby=""` attribute.
+    - Any 'help text' that is not part of a label, should be linked by adding the id of the help text element as the `aria-describedby=""` attribute on the input.
 
-    - If we use an asterisk to denote ‘required’ we should have a sentence that explains this e.g. Form fields marked with a red asterisk are required.
+    - If there is an asterisk used to denote ‘required’ inputs, there should be a sentence that explains this e.g. Form fields marked with a red asterisk are required.
 
     - All error / validation messages on the form should be listed above the form with anchor links to the fields producing the errors below.
 
@@ -95,19 +99,17 @@
 
     - These force the browser to wait for the JavaScript to be fetched, which may slow down page rendering. If they are small they can be included directly in the HTML document.
 
-3. Don't force the user to download images that are unnecessarily large.
+3. Don’t force the user to download images that are unnecessarily large.
 
     - For img elements, instead use the picture element and `srcset` to tailor images to the size they will be displayed.
 
-    - For background images, use media queries to load multiple versions of the image at different media queries.
+    - For background images, use media queries to load an appropriately sized version of the image at different media queries.
 
 4. Speed up server response time
 
     - Enable gzip compression
     - Use the most up-to-date compatible PHP version
     - Set the site to use PHP FPM, if available
-    - Wrap complex for loops in `{% cache %}` tags *(Craft-specific)*
-
 
 ## References
 
