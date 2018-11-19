@@ -15,6 +15,8 @@
 
 - [a11y.css](https://ffoodd.github.io/a11y.css/) is a CSS file you can load via a bookmarklet to detect common risks and mistakes that exist in HTML code.
 
+- [Pa11y](https://github.com/pa11y/pa11y) is a JavaScript tool (with a command-line interface) that can be used to automatically test a given URL for accessability issues. [It's also available as a standalone app](https://open-indy.github.io/Koa11y/).
+
 ## Accessibility
 
 1. Has a language Attribute been specified?
@@ -101,11 +103,17 @@
 
 3. Don’t force the user to download images that are unnecessarily large.
 
-    - For img elements, instead use the picture element and `srcset` to tailor images to the size they will be displayed.
+    - For img elements, instead use the picture element and `srcset` attribute to tailor images to the size they will be displayed.
 
     - For background images, use media queries to load an appropriately sized version of the image at different media queries.
 
-4. Speed up server response time
+    - Use 'Next-Gen' image formats like WebP if the target browser supports them. Some CDN providers offer support detection as part of their service.
+
+4. Lazy-load non-critical resources
+
+    - For CSS, use a tool like [Critical](https://github.com/addyosmani/critical) to determine the _critical_ styles needed to render only _above-the-fold_ content. These can then be inlined directly into the `<head>` of your pages to drastically speed up the initial render.
+
+5. Speed up server response time
 
     - Enable gzip compression
     - Use the most up-to-date compatible PHP version
