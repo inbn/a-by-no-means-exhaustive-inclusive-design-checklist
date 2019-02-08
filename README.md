@@ -119,6 +119,23 @@
     - Use the most up-to-date compatible PHP version
     - Set the site to use PHP FPM, if available
 
+6. Use modern font formats
+
+    - **woff** and **woff2** are the most efficient file formats for webfonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands.
+        ```css
+        @font-face {
+            font-family: 'ciclefina';
+            src: url('fonts/cicle_fina-webfont.eot');
+            src: url('fonts/cicle_fina-webfont.eot?#iefix') format('embedded-opentype'),
+                url('fonts/cicle_fina-webfont.woff2') format('woff2'),
+                url('fonts/cicle_fina-webfont.woff') format('woff'),
+                url('fonts/cicle_fina-webfont.ttf') format('truetype'),
+                url('fonts/cicle_fina-webfont.svg#ciclefina') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        ```
+
 ## References
 
 - https://github.com/Heydon/inclusive-design-checklist
