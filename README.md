@@ -63,7 +63,7 @@
 
 7. Is site still usable when zoomed in?
 
-    - Make sure every feature can be used when text size is increased to 200%
+    - Make sure every feature can be used when text size is increased to 200%.
 
 8. Is all text of a legible size?
 
@@ -83,7 +83,7 @@
 
     - Any 'help text' that is not part of a label, should be linked by adding the id of the help text element as the `aria-describedby=""` attribute on the input.
 
-    - If there is an asterisk used to denote ‘required’ inputs, there should be a sentence that explains this e.g. Form fields marked with a red asterisk are required.
+    - If there is an asterisk used to denote ‘required’ inputs, there should be a sentence that explains this e.g. "Form fields marked with an asterisk are required".
 
     - All error / validation messages on the form should be listed above the form with anchor links to the fields producing the errors below.
 
@@ -99,7 +99,7 @@
 
 2. Remove render-blocking JavaScript
 
-    - These force the browser to wait for the JavaScript to be fetched, which may slow down page rendering. If they are small they can be included directly in the HTML document.
+    - This forces the browser to wait for the JavaScript to be fetched, which may slow down page rendering. If they are small they can be included directly in the HTML document.
 
 3. Don’t force the user to download images that are unnecessarily large.
 
@@ -111,7 +111,7 @@
 
 4. Lazy-load non-critical resources
 
-    - For CSS, use a tool like [Critical](https://github.com/addyosmani/critical) to determine the _critical_ styles needed to render only _above-the-fold_ content. These can then be inlined directly into the `<head>` of your pages to drastically speed up the initial render.
+    - For CSS, use a tool like [Critical](https://github.com/addyosmani/critical) to determine the _critical_ styles needed to render only “above-the-fold” content. These can then be inlined directly into the `<head>` of your pages to drastically speed up the initial render.
 
 5. Speed up server response time
 
@@ -119,8 +119,9 @@
     - Use the most up-to-date compatible PHP version
     - Set the site to use PHP FPM, if available
 
-6. Use modern font formats
-    - **woff** and **woff2** are the most efficient file formats for webfonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands. Using the following example, modern browsers will use the **woff2** font, as they do not support eot fonts.
+6. Optimise your use of web fonts
+    - Keep the number of different web fonts loaded low and even consider using system fonts instead unless completely necessary
+    - **woff** and **woff2** are the most efficient file formats for web fonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands. Using the following example, modern browsers will use the **woff2** font, as they do not support eot fonts.
         ```css
         @font-face {
             font-family: 'MyWebFont';
