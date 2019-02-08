@@ -120,19 +120,24 @@
     - Set the site to use PHP FPM, if available
 
 6. Use modern font formats
-
-    - **woff** and **woff2** are the most efficient file formats for webfonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands.
+    - **woff** and **woff2** are the most efficient file formats for webfonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands. Using the following example, modern browsers will use the **woff2** font, as they do not support eot fonts.
         ```css
         @font-face {
-            font-family: 'ciclefina';
-            src: url('fonts/cicle_fina-webfont.eot');
-            src: url('fonts/cicle_fina-webfont.eot?#iefix') format('embedded-opentype'),
-                url('fonts/cicle_fina-webfont.woff2') format('woff2'),
-                url('fonts/cicle_fina-webfont.woff') format('woff'),
-                url('fonts/cicle_fina-webfont.ttf') format('truetype'),
-                url('fonts/cicle_fina-webfont.svg#ciclefina') format('svg');
-            font-weight: normal;
-            font-style: normal;
+            font-family: 'MyWebFont';
+            src: url('webfont.eot'); /* IE9 Compat Modes */
+            src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+                url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+                url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+                url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+        }
+        ```
+        Note: eot, ttf and svg are only required for older browsers. For most cases, the following will be sufficient:
+        ```css
+        @font-face {
+            font-family: 'MyWebFont';
+            src: url('myfont.woff2') format('woff2'),
+                url('myfont.woff') format('woff');
         }
         ```
 
