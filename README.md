@@ -17,6 +17,8 @@
 
 - [Pa11y](https://github.com/pa11y/pa11y) is a JavaScript tool (with a command-line interface) that can be used to automatically test a given URL for accessability issues. [It's also available as a standalone app](https://open-indy.github.io/Koa11y/).
 
+- To test your site is accessible by users of screen-reader software, it's vital to test using one. [NVDA](https://www.nvaccess.org/download/) is a free, open-source, screen reader for Windows. There are also built-in screen readers in the most popular operating systems: [VoiceOver](https://help.apple.com/voiceover/mac/10.14/) on MacOS and iOS; [Narrator](https://support.microsoft.com/en-gb/help/22798/windows-10-complete-guide-to-narrator) on Windows; and [TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en-GB) on Android.
+
 ## Accessibility
 
 1. Has a language Attribute been specified?
@@ -44,7 +46,7 @@
 4. Provide alternative text for images that require it
 
     - Apply `alt=""` or `aria-hidden="true"` to images that are purely decorative or contain content that is already conveyed in text.
-    - Describe the image as specifically as possible, whilst keeping it short and succinct.
+    - Describe the image as specifically as possible, while keeping it short and succinct.
     - Don’t include  ‘Image of ’ or ’Picture of’ in your alt text—a screen reader will announce this by default.
 
 5. Are all interactive elements visible and keyboard-accessible?
@@ -107,7 +109,7 @@
 
     - For background images, use media queries to load an appropriately sized version of the image at different media queries.
 
-    - Use 'Next-Gen' image formats like WebP if the target browser supports them. Some CDN providers offer support detection as part of their service.
+    - Use 'Next-Gen' image formats like WebP if the target browser supports them. Some CDN providers can detect browser-support and automatically deliver the image in the best format.
 
 4. Lazy-load non-critical resources
 
