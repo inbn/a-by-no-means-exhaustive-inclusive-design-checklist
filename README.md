@@ -47,7 +47,7 @@
 
     - Apply `alt=""` or `aria-hidden="true"` to images that are purely decorative or contain content that is already conveyed in text.
     - Describe the image as specifically as possible, while keeping it short and succinct.
-    - Don’t include  ‘Image of ’ or ’Picture of’ in your alt text—a screen reader will announce this by default.
+    - Don’t include  ‘Image of ’ or ’Picture of’ in your alt text; a screen reader will announce this by default.
 
 5. Are all interactive elements visible and keyboard-accessible?
 
@@ -55,13 +55,15 @@
 
     - Ensure all interactive elements have a clear, unambiguous `:focus` state, preferrably different from the `:hover` state. If removing the browser-default focus outline, an alternative is required.
 
-    - Links should have `text-decoration: underline;` (at least in body copy) and colour should be used as a redundant cue. i.e. not the sole indicator that an element is a link.
+    - Links should have `text-decoration: underline;` (at least in body copy) and colour should be used as a redundant cue. i.e. not the only way of indicating that an element is a link.
 
 6. Does all text meet the minimum contrast ratio?
 
-    - For **AA**, text and images of text have a contrast ratio of at least 4.5:1. Large text, 24px or 18.66px bold, has a contrast ratio of at least 3:1.
+    - To meet **AA**, text and images of text should have a contrast ratio of at least 4.5:1. Large text, above 24px or 18.66px bold, should have a contrast ratio of at least 3:1.
 
-    - For **AAA**, text and images of text have a contrast ratio of at least 7:1. Large text, 24px or 18.66px bold, has a contrast ratio of at least 4.5:1.
+    - For **AAA**, text and images of text should have a contrast ratio of at least 7:1. Large text, above 24px or 18.66px bold, should have a contrast ratio of at least 4.5:1.
+
+    - In addition to contrast ratio requirements, be aware of ['vibrating' colour combinations](https://accessibility.psu.edu/color/brightcolors/) (e.g. bright red text on a bright blue background); some of these combinations may pass the minimum contrast ratio, but can still cause users discomfort.
 
 7. Is site still usable when zoomed in?
 
@@ -101,7 +103,7 @@
 
 2. Remove render-blocking JavaScript
 
-    - This forces the browser to wait for the JavaScript to be fetched, which may slow down page rendering. If they are small they can be included directly in the HTML document.
+    - This forces the browser to wait for the JavaScript to be fetched, which may slow down page rendering. If JavaScript files are very small, they can be included directly in the HTML document.
 
 3. Don’t force the user to download images that are unnecessarily large.
 
@@ -122,7 +124,8 @@
     - Set the site to use PHP FPM, if available
 
 6. Optimise your use of web fonts
-    - Keep the number of different web fonts loaded low and even consider using system fonts instead unless completely necessary
+    - Keep the number of different web fonts loaded low and consider using system fonts instead unless completely necessary
+    - **Subset** your fonts using a tool like [glyphhanger](https://github.com/filamentgroup/glyphhanger) to remove any characters that will not appear on your website.
     - **woff** and **woff2** are the most efficient file formats for web fonts. If you're using font-face rules in your CSS, ensure these appear before formats such as ttf, as the browser will use the first one it understands. Using the following example, modern browsers will use the **woff2** font, as they do not support eot fonts.
         ```css
         @font-face {
