@@ -92,6 +92,12 @@
     - All error / validation messages on the form should be listed above the form with anchor links to the fields producing the errors below.
 
     - If the user can change or delete important data, the changes/deletions should need verification/confirmation.
+    
+10. Clearly label links
+
+    - Whenever possible, provide link text that identifies the purpose of the link without needing additional context.
+    
+    - If a link opens in a new window (i.e. using the `target="_blank"` attribute), this should be indicated in the link text.
 
 ## Performance
 
@@ -151,3 +157,4 @@
 
 - https://github.com/Heydon/inclusive-design-checklist
 - https://webaim.org/standards/wcag/checklist
+- https://www.w3.org/WAI/WCAG21/Techniques/html/H83
